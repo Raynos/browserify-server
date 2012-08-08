@@ -18,12 +18,10 @@
   },
   "dependencies": {
     "ecstatic": "~0.1.6",
-    "routes": "~0.1.1"
+    "routes": "~0.1.1",
+    "browserify": "~1.14.5"
   },
   "devDependencies": {
-    "testling": "git://github.com/Raynos/testling#master",
-    "testem": "git://github.com/Raynos/testem#master",
-    "sinon": "git://github.com/Raynos/Sinon.JS.git",
     "tap": "~0.3.0",
     "test-server": "0.0.1"
   },
