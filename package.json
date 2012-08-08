@@ -1,6 +1,6 @@
 {
   "name": "browserify-server",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Spin up a quick & easy browserify server",
   "keywords": [],
   "author": "Raynos <raynos2@gmail.com>",
@@ -36,6 +36,6 @@
     "test": "make test"
   },
   "bin": {
-    "browserify-server" : "bin/browserify-server.js"
+    "browserify-server": "bin/browserify-server.js"
   }
 }
