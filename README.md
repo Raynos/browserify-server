@@ -2,6 +2,16 @@
 
 Spin up a quick & easy browserify server
 
+## Example CLI
+
+```
+$ browserify-server --folder=example/static --port=4000
+
+browserify server listening on 8080 and serving folder example/static/
+```
+
+You now have a HTTP server listening on port 8080 that will server the `index.html` file in the static folder when you got to `/` and server the index.js file browserified when you go to `/bundle.js`
+
 ## Example Server
 
 ``` js
@@ -9,8 +19,6 @@ var handler = require("browserify-server")("./static")
     , http = require("http")
     , server = http.createServer(handler).listen(8080)
 ```
-
-You now have a HTTP server listening on port 8080 that will server the `index.html` file in the static folder when you got to `/` and server the index.js file browserified when you go to `/bundle.js`
 
 No more browserify boilerplate ever again!
 

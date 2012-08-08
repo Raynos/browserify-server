@@ -19,7 +19,8 @@
   "dependencies": {
     "ecstatic": "~0.1.6",
     "routes": "~0.1.1",
-    "browserify": "~1.14.5"
+    "browserify": "~1.14.5",
+    "optimist": "~0.3.4"
   },
   "devDependencies": {
     "tap": "~0.3.0",
@@ -33,5 +34,8 @@
   ],
   "scripts": {
     "test": "make test"
+  },
+  "bin": {
+    "browserify-server" : "bin/browserify-server.js"
   }
 }
