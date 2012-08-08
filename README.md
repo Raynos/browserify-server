@@ -7,7 +7,7 @@ Spin up a quick & easy browserify server
 ```
 $ browserify-server --folder=example/static --port=4000
 
-browserify server listening on 8080 and serving folder example/static/
+browserify server listening on 4000 and serving folder example/static
 ```
 
 You now have a HTTP server listening on port 8080 that will server the `index.html` file in the static folder when you got to `/` and server the index.js file browserified when you go to `/bundle.js`
