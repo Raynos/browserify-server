@@ -4,12 +4,17 @@ var http = require("http")
     , Router = require("routes").Router
     , path = require("path")
 
+createHandler.listen = listen
+
 module.exports = createHandler
 
 function createHandler(staticDir) {
     var httpRouter = new Router()
-    httpRouter.addRoute("/", ecstatic(staticDir))
+        , staticHandler = ecstatic(staticDir)
+
+    httpRouter.addRoute("/", staticHandler)
     httpRouter.addRoute("/bundle.js", bundleBrowserify)
+    httpRouter.addRoute("/*", staticHandler)
 
     return httpHandler
 
@@ -26,14 +31,33 @@ function createHandler(staticDir) {
         var b = browserify({
             debug: true
         })
-        b.addEntry(path.join(staticDir, "index.js"))
         res.setHeader("content-type", "application/json")
         res.statusCode = 200
         try {
+            b.addEntry(path.join(staticDir, "index.js"))
             res.end(b.bundle())
         } catch (err) {
             res.statusCode = 500
             res.end(err.message)
         }
     }
+}
+
+function listen(dirname, port) {
+    if (typeof dirname === "number") {
+        port = dirname
+        dirname = null
+    }
+
+    if (!port) {
+        port = 8080
+    }
+    if (!dirname) {
+        dirname = process.cwd()
+    }
+
+    var handler = createHandler(path.join(dirname, "static"))
+        , server = http.createServer(handler).listen(port)
+
+    return server
 }
