@@ -19,7 +19,7 @@
   "dependencies": {
     "ecstatic": "~0.1.6",
     "routes": "~0.1.1",
-    "browserify": "git@github.com:Raynos/node-browserify",
+    "browserify": "git://github.com/Raynos/node-browserify",
     "optimist": "~0.3.4"
   },
   "devDependencies": {
