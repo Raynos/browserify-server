@@ -1,0 +1,19 @@
+Usage:
+
+  browserify-server OPTIONS
+  
+    Starts a browserify server. It's basically a static HTTP server that
+    handles browserifing files, yarnifying files and does live reloading
+    
+    OPTIONS
+      --cwd=somePath : set the cwd. This is used by yarnify & live reload
+      --folder=somePath : set the static folder to server content from.
+            Defaults to "static". It's a relative path to the cwd option
+      --no-yarnify : set this option to turn of yarnify features
+      --no-livereload : set this option to turn of live reload features
+      --livereload-port=somePort : set the live reload server port
+            Defaults to port 8081
+      --port=somePort : set the http static server port
+            Defaults to port 8080
+      --help : your looking at it
+
