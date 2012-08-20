@@ -19,11 +19,14 @@
   "dependencies": {
     "ecstatic": "~0.1.6",
     "routes": "~0.1.1",
-    "browserify": "git://github.com/Raynos/node-browserify",
+    "browserify": "~1.14.5",
     "optimist": "~0.3.4",
     "iterate-files": "~0.1.1",
     "yarnify": "~0.5.1",
-    "iterators": "~0.2.0"
+    "iterators": "~0.2.0",
+    "hound": "~1.0.4",
+    "filed": "0.0.7",
+    "shoe": "0.0.4"
   },
   "devDependencies": {
     "tap": "~0.3.0",

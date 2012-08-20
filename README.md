@@ -1,4 +1,4 @@
-# browserify-server [![build status][1]][2]
+# browserify-server
 
 Spin up a quick & easy browserify server
 
