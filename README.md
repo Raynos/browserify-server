@@ -17,6 +17,14 @@ and serving static folder static
 and yarnifying folders from <CWD>
 ```
 
+`$ browserify-server --help`
+
+outputs the help document
+
+`$ browserify-server --index`
+
+outputs the boilerplate index.html
+
 It starts a browserify server. It's basically a static HTTP server that handles browserifing files, yarnifying files and does live reloading
 
 By default `browserify-server` will serve static content from <CWD>/static.
@@ -41,6 +49,7 @@ It will also start a live reload server which serves a js file from `http://loca
     Defaults to port 8081
 --port=somePort : set the http static server port
     Defaults to port 8080
+--index : outputs a boilerplate index.html
 --help : your looking at it
 ```
 

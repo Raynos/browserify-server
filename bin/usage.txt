@@ -15,5 +15,6 @@ Usage:
             Defaults to port 8081
       --port=somePort : set the http static server port
             Defaults to port 8080
+      --index : outputs a boilerplate index.html
       --help : your looking at it
 
