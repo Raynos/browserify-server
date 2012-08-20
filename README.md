@@ -49,10 +49,6 @@ It will also start a live reload server which serves a js file from `http://loca
 
 `npm install browserify-server`
 
-## Tests
-
-`make test`
-
 ## Contributors
 
  - Raynos
