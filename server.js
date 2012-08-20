@@ -9,7 +9,8 @@ function Server(options) {
     options = options || {}
     
     var liveReloadPort = options["livereload-port"] || 8081
-        , cwd = options.cwd || process.cwd()
+        , cwd = options.cwd ? path.join(process.cwd(), options.cwd)
+            : process.cwd()
         , port = options.port || 8080
         , liveReload = !options["no-livereload"]
         , yarnify = !options["no-yarnify"]
@@ -17,7 +18,7 @@ function Server(options) {
 
 
     var handler = browserifyServer({
-        staticFolder: folder
+        folder: folder
         , cwd: cwd
         , yarnify: yarnify
     })
@@ -25,6 +26,7 @@ function Server(options) {
     if (liveReload) {
         var lrServer = LiveReloadServer({
             cwd: cwd
+            , folder: folder
         })
 
         lrServer.listen(liveReloadPort, reportLiveReload)

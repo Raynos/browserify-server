@@ -3,3 +3,5 @@ var winning = require("./winning")
 
 var widget = winning('winning!')
 widget.appendTo(body)
+
+console.log("hello")

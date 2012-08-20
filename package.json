@@ -26,7 +26,8 @@
     "iterators": "~0.2.0",
     "hound": "~1.0.4",
     "filed": "0.0.7",
-    "shoe": "0.0.4"
+    "shoe": "0.0.4",
+    "mkdirp": "~0.3.3"
   },
   "devDependencies": {
     "tap": "~0.3.0",

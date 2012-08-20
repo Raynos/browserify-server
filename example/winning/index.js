@@ -14,3 +14,5 @@ function winning(text) {
         parent.appendChild(elem)
     }
 }
+
+console.log("change?")
