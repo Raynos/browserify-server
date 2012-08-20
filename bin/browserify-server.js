@@ -10,63 +10,14 @@
     --help for help document
 */
 
-var path = require("path")
-    , http = require("http")
-    , argv = require("optimist").argv
-    , browserifyServer = require("..")
-    , LiveReloadServer = browserifyServer.LiveReloadServer
-    , folder = argv.folder || "static"
-    , yarnify = !argv["no-yarnify"]
-    , liveReload = !argv["no-livereload"]
+var argv = require("optimist").argv
+    , path = require("path")
     , help = argv.help || argv.h
     , filed = require("filed")
-    , liveReloadPort = argv["livereload-port"] || 8081
-    , cwd = argv.cwd || process.cwd()
-    , port = argv.port || 8080
+    , Server = require("../server")
 
 if (help) {
     filed(path.join(__dirname, "usage.txt")).pipe(process.stdout)
 } else {
-    var handler = browserifyServer({
-        staticFolder: folder
-        , cwd: cwd
-        , yarnify: yarnify
-    })
-
-    if (liveReload) {
-        var lrServer = LiveReloadServer({
-            cwd: cwd
-        })
-
-        lrServer.listen(liveReloadPort, reportLiveReload)
-    }
-
-    var server = http.createServer(handler).listen(port, report)
-}
-
-function report() {
-    var add = server.address()
-    var message = [
-        "browserify server listening on"
-        , add.port
-        , "\nand serving static folder"
-        , folder
-    ]
-
-    if (yarnify) {
-        message = message.concat([
-            "\nand yarnifying folders from"
-            , cwd
-        ])
-    }
-
-    message.push("\n")
-
-    console.log.apply(console, message)
-}
-
-function reportLiveReload() {
-    var add = lrServer.address()
-    console.log("livereload server listening on", add.port,
-        "\nand reloading from", cwd, "\n")
+    Server(argv)
 }
