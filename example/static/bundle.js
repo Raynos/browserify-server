@@ -204,7 +204,7 @@ require.define("/node_modules/vm-browserify/index.js",Function(['require','modul
 
 require.define("/example/winning/index.js",Function(['require','module','exports','__dirname','__filename','process'],"var yarn = require(\"./yarn\")\n\nmodule.exports = winning\n\nfunction winning(text) {\n    var elem = yarn('winning.html', ['winning.css'])\n    elem.firstChild.textContent = text\n\n    return {\n        appendTo: appendTo\n    }\n\n    function appendTo(parent) {\n        parent.appendChild(elem)\n    }\n}\n\nconsole.log(\"change???\")\n//@ sourceURL=/example/winning/index.js"));
 
-require.define("/example/winning/yarn",Function(['require','module','exports','__dirname','__filename','process'],"module.exports = require(\"yarnify\")(\"_021a2e4e-\",{\"/winning.html\":\"<div class=\\\"foo\\\">\\n    \\n</div>\",\"/winning.css\":[\"8b2a1fa3\",\"._021a2e4e-8b2a1fa3 ._021a2e4e-foo {\\n    color: green;\\n}\"]});\n\n//@ sourceURL=/example/winning/yarn"));
+require.define("/example/winning/yarn",Function(['require','module','exports','__dirname','__filename','process'],"module.exports = require(\"yarnify\")(\"_b593572d-\",{\"/winning.html\":\"<div class=\\\"foo\\\">\\n    \\n</div>\",\"/winning.css\":[\"c9d7b4d6\",\"._b593572d-c9d7b4d6 ._b593572d-foo {\\n    color: red;\\n}\"]});\n\n//@ sourceURL=/example/winning/yarn"));
 
 require.define("/node_modules/yarnify/package.json",Function(['require','module','exports','__dirname','__filename','process'],"module.exports = {\"main\":\"index.js\",\"browserify\":\"browser.js\"}\n//@ sourceURL=/node_modules/yarnify/package.json"));
 
