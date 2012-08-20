@@ -1,17 +1,65 @@
 #!/usr/bin/env node
 
+/*
+    --folder='static' The static folder to use
+    --cwd='other/thing' Change the cwd
+    --no-yarnify Disable yarnify feature
+    --no-livereload Disable livereload
+    --livereload-port=somePort Set the port for livereload server
+    --port Set the port for HTTP server
+*/
+
 var path = require("path")
     , http = require("http")
     , argv = require("optimist").argv
     , browserifyServer = require("..")
+    , LiveReloadServer = browserifyServer.LiveReloadServer
     , folder = argv.folder || "static"
+    , yarnify = !argv["no-yarnify"]
+    , liveReload = !argv["no-livereload"]
+    , liveReloadPort = argv["livereload-port"] || 8081
+    , cwd = argv.cwd || process.cwd()
+    , port = argv.port || 8080
 
-var handler = browserifyServer(path.join(process.cwd(), folder))
+var handler = browserifyServer({
+    staticFolder: folder
+    , cwd: cwd
+    , yarnify: yarnify
+})
 
-var server = http.createServer(handler).listen(argv.port || 8080, report)
+if (liveReload) {
+    var lrServer = LiveReloadServer({
+        cwd: cwd
+    })
+
+    lrServer.listen(liveReloadPort, reportLiveReload)
+}
+
+var server = http.createServer(handler).listen(port, report)
 
 function report() {
     var add = server.address()
-    console.log("browserify server listening on", add.port,
-        "and serving folder", argv.folder)
+    var message = [
+        "browserify server listening on"
+        , add.port
+        , "\nand serving static folder"
+        , folder
+    ]
+
+    if (yarnify) {
+        message = message.concat([
+            "\nand yarnifying folders from"
+            , cwd
+        ])
+    }
+
+    message.push("\n")
+
+    console.log.apply(console, message)
+}
+
+function reportLiveReload() {
+    var add = lrServer.address()
+    console.log("livereload server listening on", add.port,
+        "\nand reloading from", cwd, "\n")
 }

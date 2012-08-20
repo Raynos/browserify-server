@@ -1,0 +1,1 @@
+module.exports = require("yarnify")("_f6fe4ff7-",{"/winning.css":["8c4265b8","._f6fe4ff7-8c4265b8 ._f6fe4ff7-foo {\n    color: red;\n}"],"/winning.html":"<div class=\"foo\">\n\n</div>"});
