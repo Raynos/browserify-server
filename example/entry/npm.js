@@ -1,3 +1,3 @@
 var m = require("mediator")
 
-console.log("mediator a", !!m)
+console.log("mediator b", !!m)
