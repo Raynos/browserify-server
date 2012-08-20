@@ -4,7 +4,7 @@ module.exports = winning
 
 function winning(text) {
     var elem = yarn('winning.html', ['winning.css'])
-    elem.textContent = text
+    elem.firstChild.textContent = text
 
     return {
         appendTo: appendTo
