@@ -1,3 +1,5 @@
+require("live-reload")(8081)
+
 var winning = require("./winning")
     , body = document.body
 

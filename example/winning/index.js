@@ -1,9 +1,10 @@
-var yarn = require("./yarn")
+var html = require("./winning.html")
+    , Fragment = require("fragment")
 
 module.exports = winning
 
 function winning(text) {
-    var elem = yarn('winning.html', ['winning.css'])
+    var elem = Fragment(html)
     elem.firstChild.textContent = text
 
     return {
@@ -15,4 +16,4 @@ function winning(text) {
     }
 }
 
-console.log("change???")
+console.log("change??")

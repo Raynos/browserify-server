@@ -12,7 +12,7 @@
 require.paths = [];
 require.modules = {};
 require.cache = {};
-require.extensions = [".js",".coffee"];
+require.extensions = [".js",".coffee",".html"];
 
 require._core = {
     'assert': true,
