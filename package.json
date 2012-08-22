@@ -1,6 +1,6 @@
 {
   "name": "browserify-server",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Spin up a quick & easy browserify server",
   "keywords": [],
   "author": "Raynos <raynos2@gmail.com>",
