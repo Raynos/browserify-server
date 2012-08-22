@@ -27,11 +27,13 @@
     "hound": "~1.0.4",
     "filed": "0.0.7",
     "shoe": "0.0.4",
-    "mkdirp": "~0.3.3"
+    "mkdirp": "~0.3.3",
+    "live-reload": "0.0.1"
   },
   "devDependencies": {
     "tap": "~0.3.0",
-    "test-server": "0.0.1"
+    "test-server": "0.0.1",
+    "fragment": "~0.2.0"
   },
   "licenses": [
     {

@@ -1,12 +1,10 @@
 var http = require("http")
     , ecstatic = require("ecstatic")
     , path = require("path")
-    , LiveReloadServer = require("./lib/liveReloadServer")
     , Browserify = require("./lib/browserify")
     , Yarnify = require("./lib/yarnify")
 
 createHandler.listen = listen
-createHandler.LiveReloadServer = LiveReloadServer
 
 module.exports = createHandler
 
@@ -24,10 +22,6 @@ function createHandler(options) {
 
     Browserify("index.js", "bundle.js", options)
     Browserify("entry", "entry", options)
-
-    if (shouldYarnify) {
-        Yarnify(options)
-    }
 
     return mount
 }

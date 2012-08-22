@@ -1,7 +1,8 @@
 var path = require("path")
     , http = require("http")
     , browserifyServer = require("./index")
-    , LiveReloadServer = browserifyServer.LiveReloadServer
+    , ignore = require("./lib/ignore")
+    , LiveReloadServer = require("live-reload")
 
 module.exports = Server
 
@@ -26,7 +27,10 @@ function Server(options) {
     if (liveReload) {
         var lrServer = LiveReloadServer({
             cwd: cwd
-            , folder: folder
+            , ignore: ignore("reload", {
+                cwd: cwd
+                , folder: folder
+            })
         })
 
         lrServer.listen(liveReloadPort, reportLiveReload)
@@ -40,15 +44,8 @@ function Server(options) {
             "browserify server listening on"
             , add.port
             , "\nand serving static folder"
-            , folder
+            , path.join(cwd, folder)
         ]
-
-        if (yarnify) {
-            message = message.concat([
-                "\nand yarnifying folders from"
-                , cwd
-            ])
-        }
 
         message.push("\n")
 
