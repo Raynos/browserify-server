@@ -1,2 +1,2 @@
 run:
-	node ../bin/browserify-server.js
+	node ../node_modules/.bin/browserify-server
