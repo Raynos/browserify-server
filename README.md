@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/Raynos/browserify-server.png)](http://travis-ci.org/Raynos/browserify-server)
 # browserify-server
 
 Spin up a quick & easy browserify server
