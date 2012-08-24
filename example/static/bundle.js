@@ -228,6 +228,6 @@ require.define("/node_modules/fragment/package.json",Function(['require','module
 
 require.define("/node_modules/fragment/index.js",Function(['require','module','exports','__dirname','__filename','process'],"module.exports = Fragment\n\nfunction Fragment(html) {\n    var div = document.createElement(\"div\"),\n        fragment = document.createDocumentFragment()\n\n    div.innerHTML = html\n\n    while (div.hasChildNodes()) {\n        fragment.appendChild(div.firstChild)\n    }\n\n    return fragment\n}\n//@ sourceURL=/node_modules/fragment/index.js"));
 
-require.define("/example/index.js",Function(['require','module','exports','__dirname','__filename','process'],"require(\"live-reload\")(8081)\n\nvar winning = require(\"./winning\")\n    , body = document.body\n\nvar widget = winning('winning!')\nwidget.appendTo(body)\n\nconsole.log(\"hello???\")\n//@ sourceURL=/example/index.js"));
+require.define("/example/index.js",Function(['require','module','exports','__dirname','__filename','process'],"require(\"live-reload\")(8081)\n\nvar winning = require(\"./winning\")\n    , body = document.body\n\nvar widget = winning('winning!')\nwidget.appendTo(body)\n\nconsole.log(\"hello!\")\n//@ sourceURL=/example/index.js"));
 require("/example/index.js");
 })();
