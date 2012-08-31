@@ -12,7 +12,7 @@
 require.paths = [];
 require.modules = {};
 require.cache = {};
-require.extensions = [".js",".coffee",".html"];
+require.extensions = [".js",".coffee",".html",".svg"];
 
 require._core = {
     'assert': true,
@@ -202,6 +202,11 @@ require.define("/node_modules/vm-browserify/package.json",Function(['require','m
 
 require.define("/node_modules/vm-browserify/index.js",Function(['require','module','exports','__dirname','__filename','process'],"var Object_keys = function (obj) {\n    if (Object.keys) return Object.keys(obj)\n    else {\n        var res = [];\n        for (var key in obj) res.push(key)\n        return res;\n    }\n};\n\nvar forEach = function (xs, fn) {\n    if (xs.forEach) return xs.forEach(fn)\n    else for (var i = 0; i < xs.length; i++) {\n        fn(xs[i], i, xs);\n    }\n};\n\nvar Script = exports.Script = function NodeScript (code) {\n    if (!(this instanceof Script)) return new Script(code);\n    this.code = code;\n};\n\nScript.prototype.runInNewContext = function (context) {\n    if (!context) context = {};\n    \n    var iframe = document.createElement('iframe');\n    if (!iframe.style) iframe.style = {};\n    iframe.style.display = 'none';\n    \n    document.body.appendChild(iframe);\n    \n    var win = iframe.contentWindow;\n    \n    forEach(Object_keys(context), function (key) {\n        win[key] = context[key];\n    });\n     \n    if (!win.eval && win.execScript) {\n        // win.eval() magically appears when this is called in IE:\n        win.execScript('null');\n    }\n    \n    var res = win.eval(this.code);\n    \n    forEach(Object_keys(win), function (key) {\n        context[key] = win[key];\n    });\n    \n    document.body.removeChild(iframe);\n    \n    return res;\n};\n\nScript.prototype.runInThisContext = function () {\n    return eval(this.code); // maybe...\n};\n\nScript.prototype.runInContext = function (context) {\n    // seems to be just runInNewContext on magical context objects which are\n    // otherwise indistinguishable from objects except plain old objects\n    // for the parameter segfaults node\n    return this.runInNewContext(context);\n};\n\nforEach(Object_keys(Script.prototype), function (name) {\n    exports[name] = Script[name] = function (code) {\n        var s = Script(code);\n        return s[name].apply(s, [].slice.call(arguments, 1));\n    };\n});\n\nexports.createScript = function (code) {\n    return exports.Script(code);\n};\n\nexports.createContext = Script.createContext = function (context) {\n    // not really sure what this one does\n    // seems to just make a shallow copy\n    var copy = {};\n    if(typeof context === 'object') {\n        forEach(Object_keys(context), function (key) {\n            copy[key] = context[key];\n        });\n    }\n    return copy;\n};\n\n//@ sourceURL=/node_modules/vm-browserify/index.js"));
 
-require.define("/other-entry.js",Function(['require','module','exports','__dirname','__filename','process'],"console.log(\"other entries work too ?\")\n//@ sourceURL=/other-entry.js"));
-require("/other-entry.js");
+require.define("/home/raynos/Documents/browserify-server/lib/dummy.js",Function(['require','module','exports','__dirname','__filename','process'],"var process = require.modules.__browserify_process();\nprocess.env.NODE_ENV = 'production'\nrequire.modules.__browserify_process = function () {\n   return process\n}\n//@ sourceURL=/home/raynos/Documents/browserify-server/lib/dummy.js"));
+
+require.define("/lib/other.js",Function(['require','module','exports','__dirname','__filename','process'],"require('/home/raynos/Documents/browserify-server/lib/dummy.js')\n//@ sourceURL=/lib/other.js"));
+require("/lib/other.js");
+
+require.define("/example/entry/other-entry.js",Function(['require','module','exports','__dirname','__filename','process'],"console.log(\"other entries work too ?\")\n//@ sourceURL=/example/entry/other-entry.js"));
+require("/example/entry/other-entry.js");
 })();
