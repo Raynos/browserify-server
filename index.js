@@ -4,8 +4,8 @@ var path = require("path")
 
 module.exports = bundle
 
-function bundle(input) {
-    var bundle = createBundle(input)
+function bundle(input, options) {
+    var bundle = createBundle(input, options)
 
     try {
         return bundle.bundle()
@@ -14,7 +14,7 @@ function bundle(input) {
     }
 }
 
-function createBundle(input) {
+function createBundle(input, options) {
     var bundle = browserify({
         debug: true
     })
@@ -26,7 +26,7 @@ function createBundle(input) {
         body: "process.env.NODE_ENV = '" +
             process.env.NODE_ENV + "'\n"
     })
-    bundle.addEntry(input)
+    bundle.addEntry(input, options)
 
     return bundle
 }
