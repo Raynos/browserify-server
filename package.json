@@ -1,7 +1,7 @@
 {
   "name": "browserify-server",
   "version": "1.2.4",
-  "description": "Spin up a quick & easy browserify server",
+  "description": "Browserify bundling + static server in one!",
   "keywords": [],
   "author": "Raynos <raynos2@gmail.com>",
   "repository": "git://github.com/Raynos/browserify-server.git",
