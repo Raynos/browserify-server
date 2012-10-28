@@ -4,8 +4,8 @@ var argv = require("optimist").argv
     , path = require("path")
     , filed = require("filed")
 
-    , bundle = require("../lib/bundle")
-    , server = require("../lib/server")
+    , bundle = require("..")
+    , server = require("../server")
 
     , help = argv.help || argv.h
     , index = argv.index || argv.i
