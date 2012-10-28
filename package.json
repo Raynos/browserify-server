@@ -18,23 +18,11 @@
   },
   "dependencies": {
     "ecstatic": "~0.1.6",
-    "routes": "~0.1.1",
-    "browserify": "git://github.com/Raynos/node-browserify.git",
     "optimist": "~0.3.4",
-    "iterate-files": "~0.1.1",
-    "yarnify": "~0.5.1",
-    "iterators": "~0.2.0",
-    "hound": "~1.0.4",
     "filed": "0.0.7",
-    "shoe": "0.0.4",
-    "mkdirp": "~0.3.3",
-    "live-reload": "0.0.1"
+    "browserify": "~1.16.1"
   },
-  "devDependencies": {
-    "tap": "~0.3.0",
-    "test-server": "0.0.1",
-    "fragment": "~0.2.0"
-  },
+  "devDependencies": {},
   "licenses": [
     {
       "type": "MIT",
