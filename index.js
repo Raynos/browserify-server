@@ -2,18 +2,13 @@ var path = require("path")
     , fs = require("fs")
     , browserify = require("browserify")
 
-    , NODE_ENV = process.env.NODE_ENV
-
 module.exports = bundle
 
-function bundle(input, output) {
+function bundle(input) {
     var bundle = createBundle(input)
 
     try {
-        var data = bundle.bundle()
-        fs.writeFileSync(output, data, "utf-8")
-        console.log("bundled", input, "to", output
-            , "with env", NODE_ENV)
+        return bundle.bundle()
     } catch (err) {
         console.error("[BROWSERIFY-SERVER]", err)
     }
@@ -28,7 +23,8 @@ function createBundle(input) {
     bundle.register(".svg", handleHtml)
 
     bundle.addEntry(path.join(__dirname, "other.js"), {
-        body: "process.env.NODE_ENV = '" + NODE_ENV + "'\n"
+        body: "process.env.NODE_ENV = '" +
+            process.env.NODE_ENV + "'\n"
     })
     bundle.addEntry(input)
 
