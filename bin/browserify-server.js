@@ -5,8 +5,8 @@ var argv = require("optimist").argv
     , fs = require("fs")
     , filed = require("filed")
 
-    , bundle = require("..")
-    , server = require("../server")
+    , Bundle = require("..")
+    , Server = require("../server")
 
     , help = argv.help || argv.h
     , index = argv.index || argv.i
@@ -14,17 +14,16 @@ var argv = require("optimist").argv
     , server = argv.server || argv.s
     , output = argv.output || argv.o
     , port = argv.port || argv.p
-    , input = argv._[0]
 
 if (help) {
     filed(path.join(__dirname, "usage.txt")).pipe(process.stdout)
 } else if (index) {
     filed(path.join(__dirname, "index.html")).pipe(process.stdout)
 } else if (bundle) {
-    var data = bundle(input, output)
+    var data = Bundle(bundle, output)
     fs.writeFileSync(output, data, "utf-8")
-    console.log("bundled", input, "to", output
+    console.log("bundled", bundle, "to", output
         , "with env", process.env.NODE_ENV)
 } else if (server) {
-    server(argv._[0], port)
+    Server(server, port)
 }
