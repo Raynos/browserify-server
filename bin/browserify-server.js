@@ -7,6 +7,7 @@ var argv = require("optimist").argv
 
     , Bundle = require("..")
     , Server = require("../server")
+    , Example = require("../example")
 
     , help = argv.help || argv.h
     , index = argv.index || argv.i
@@ -14,6 +15,7 @@ var argv = require("optimist").argv
     , server = argv.server || argv.s
     , output = argv.output || argv.o
     , port = argv.port || argv.p
+    , example = argv.example || argv.e
 
 if (help) {
     filed(path.join(__dirname, "usage.txt")).pipe(process.stdout)
@@ -26,4 +28,6 @@ if (help) {
         , "with env", process.env.NODE_ENV)
 } else if (server) {
     Server(server, port)
+} else if (example) {
+    Example(example)
 }
