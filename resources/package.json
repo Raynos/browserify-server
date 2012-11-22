@@ -7,7 +7,7 @@
   "dependencies": {
   },
   "devDependencies": {
-    "browserify-server": "~2.1.2",
+    "browserify-server": "~2.1.4",
     "wr": "~1.2.1",
     "live-reload": "~0.2.0"
   },
