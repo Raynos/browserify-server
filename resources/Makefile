@@ -7,7 +7,7 @@ server:
 		--server=./static --port=8081
 
 watch:
-	./node_modules/.bin/nodemon --exec "make build" .
+	./node_modules/.bin/wr "make build" .
 
 live-reload:
 	./node_modules/.bin/live-reload
