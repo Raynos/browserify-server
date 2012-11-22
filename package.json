@@ -20,7 +20,8 @@
     "ecstatic": "~0.1.6",
     "optimist": "~0.3.4",
     "filed": "0.0.7",
-    "browserify": "~1.16.1"
+    "browserify": "~1.16.1",
+    "mkdirp": "~0.3.4"
   },
   "devDependencies": {},
   "licenses": [
