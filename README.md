@@ -7,13 +7,20 @@ Browserify bundling + static server in one!
 ```
 Usage:
 
-  browserify-server bundle [file] -o [out]
+  browserify-server --bundle=[file] -o [out]
 
     bundle the file and write the bundle to out
 
-  browserify-server server [folder] --port PORT
+  browserify-server --server=[folder] --port PORT
 
     Run a static http server serving the folder
+
+  browserify-server --example=name
+
+    Scaffolds an examples folder in ./examples/name with
+      a makefile, package.json and static/index.html setup for
+      writing examples that use browserify-server
+
 ```
 
 ## Installation
