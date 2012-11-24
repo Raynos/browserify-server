@@ -1,6 +1,6 @@
 {
   "name": "browserify-server",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "description": "Browserify bundling + static server in one!",
   "keywords": [],
   "author": "Raynos <raynos2@gmail.com>",
