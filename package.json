@@ -23,6 +23,7 @@
     "browserify": "~1.16.1",
     "mkdirp": "~0.3.4"
   },
+  "files": ["resources/.gitignore"],
   "devDependencies": {},
   "licenses": [
     {
