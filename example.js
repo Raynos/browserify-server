@@ -8,7 +8,7 @@ var fs = require("fs")
     , uris = [
         "Makefile"
         , "index.js"
-        , ".gitignore"
+        , ".lolignore"
         , "package.json"
         , join("static", "index.html")
     ]
@@ -24,8 +24,13 @@ function Example(uri) {
         }
 
         uris.forEach(function (file) {
+            var target = file
+            if (file === ".lolignore") {
+                target = ".gitignore"
+            }
+
             read(join(resources, file))
-                .pipe(write(join(exampleDir, file)))
+                .pipe(write(join(exampleDir, target)))
         })
     })
 }
