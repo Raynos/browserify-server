@@ -12,6 +12,11 @@
     "live-reload": "~0.2.0"
   },
   "scripts": {
-    "build": "make all"
+    "build": "browserify-server --bundle=index.js -o ./static/bundle.js",
+    "server": "browserify-server --server=./static --port=8081",
+    "watch": "wr 'npm run build' .",
+    "live-reload": "live-reload",
+    "open": "google-chrome localhost:8080",
+    "all": "npm run server & npm run live-reload & npm run watch"
   }
 }
