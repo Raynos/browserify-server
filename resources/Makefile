@@ -16,6 +16,7 @@ open:
 	google-chrome localhost:9476
 
 all:
+	make build
 	make server &
 	make live-reload &
 	make watch
