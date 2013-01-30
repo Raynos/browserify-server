@@ -14,6 +14,7 @@ var Example = require("../example")
 var help = argv.help || argv.h
 var index = argv.index || argv.i
 var bundle = argv.bundle || argv.b
+var bundleTarget = typeof bundle === "string" ? bundle : argv._[0]
 var server = argv.server || argv.s
 var output = argv.output || argv.o
 var port = argv.port || argv.p
@@ -26,10 +27,12 @@ if (help) {
 } else if (index) {
     filed(path.join(__dirname, "index.html")).pipe(process.stdout)
 } else if (bundle) {
-    var data = Bundle(bundle, argv)
-    fs.writeFileSync(output, data, "utf-8")
-    console.log("bundled", bundle, "to", output, "with env"
-        , process.env.NODE_ENV)
+    var data = Bundle(bundleTarget, argv)
+    if (output) {
+        fs.writeFileSync(output, data, "utf-8")
+    } else {
+        process.stdout.write(data)
+    }
 } else if (server) {
     Server(server, port)
 } else if (example) {
