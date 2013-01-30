@@ -21,7 +21,8 @@
     "optimist": "~0.3.4",
     "filed": "0.0.7",
     "browserify": "git://github.com/Raynos/node-browserify",
-    "mkdirp": "~0.3.4"
+    "mkdirp": "~0.3.4",
+    "process": "~0.5.0"
   },
   "devDependencies": {},
   "licenses": [
