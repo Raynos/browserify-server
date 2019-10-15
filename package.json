@@ -17,7 +17,7 @@
     "email": "raynos2@gmail.com"
   },
   "dependencies": {
-    "ecstatic": "~0.1.6",
+    "ecstatic": "~4.1.2",
     "optimist": "~0.3.4",
     "filed": "0.0.7",
     "browserify": "git://github.com/Raynos/node-browserify",
